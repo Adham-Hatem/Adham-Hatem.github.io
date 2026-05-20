@@ -45,7 +45,7 @@ export default function Projects() {
         "- Problem solving skills",
         "- Beginner React knowledge and DOM manipulation",
       ],
-      href: "http://localhost:5173/WindowCat",
+      href: "./WindowCat",
     },
   ];
 

@@ -1,6 +1,7 @@
 ---
 title: Portofolio
 emoji: 📉
+port: 80
 colorFrom: purple
 colorTo: blue
 sdk: docker

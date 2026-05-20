@@ -36,12 +36,12 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 # Verify files are copied
 RUN ls -la /usr/share/nginx/html
 
-# Expose port
-EXPOSE 80
+# Expose ports (80 and 7860)
+EXPOSE 80 7860
 
-# Add healthcheck using curl
+# Add healthcheck probing both ports (try 7860 first, then 80)
 HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
-    CMD curl -f http://localhost/ || exit 1
+    CMD sh -c 'curl -fsS http://localhost:7860/ || curl -fsS http://localhost/ || exit 1'
 
 # Start Nginx in foreground
 CMD ["nginx", "-g", "daemon off;"]

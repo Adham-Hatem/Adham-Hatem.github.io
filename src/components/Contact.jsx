@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import mailIcon from "../assets/mail-Icon.svg";
-import whatsappIcon from "../assets/whatsapp-icon.svg";
 import linkedinIcon from "../assets/linkedin-icon.svg";
 import githubIcon from "../assets/github-icon.svg";
 import "../main.css";
@@ -20,9 +19,6 @@ function Contact() {
             target="_blank"
           >
             <img src={mailIcon} alt="Email" className="icon" />
-          </a>
-          <a href="https://wa.me/+201028675020" target="_blank">
-            <img src={whatsappIcon} alt="WhatsApp" className="icon" />
           </a>
           <a
             href="https://linkedin.com/in/adham-hatem-94bb99343/"

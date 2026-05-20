@@ -1,0 +1,815 @@
+:root {
+  /* Window Data */
+  --windowColor: rgb(138, 96, 79);
+  --rodColor: rgb(119, 82, 67);
+
+  --borderThickness: 10px;
+  --rodThickness: 10px;
+  --windowWidth: 250px;
+
+  /* Cat Data*/
+  --catColor: rgb(255, 255, 255);
+  --catHeadColor: rgb(255, 255, 255);
+  --catHighlightColor: rgb(233, 233, 233);
+  --catLeftEarColor: rgb(157, 157, 157);
+  --catRightEarColor: rgb(157, 157, 157);
+
+  --catMouthColor: rgb(61, 61, 61);
+  --catEyeColor: rgb(61, 61, 61);
+  --catWhiskerColor: rgba(61, 61, 61, 0.88);
+}
+
+[data-cat-type="ginger"] {
+  --catColor: rgb(247, 161, 86);
+  --catHeadColor: rgb(249, 170, 102);
+  --catHighlightColor: rgb(229, 150, 82);
+  --catLeftEarColor: rgb(228, 139, 61);
+  --catRightEarColor: rgb(228, 139, 61);
+  --catTailColor: var(--catColor);
+}
+
+[data-cat-type="chinchilla"] {
+  --catColor: rgb(227, 227, 227);
+  --catHeadColor: rgb(235, 235, 235);
+  --catHighlightColor: rgb(211, 211, 211);
+  --catLeftEarColor: rgb(157, 157, 157);
+  --catRightEarColor: rgb(157, 157, 157);
+  --catTailColor: var(--catColor);
+}
+
+[data-cat-type="britishShorthair"] {
+  --catColor: rgb(190, 190, 190);
+  --catHeadColor: rgb(204, 204, 204);
+  --catHighlightColor: rgb(170, 170, 170);
+  --catLeftEarColor: rgb(146, 146, 146);
+  --catRightEarColor: rgb(146, 146, 146);
+  --catTailColor: var(--catColor);
+}
+
+[data-cat-type="calico"] {
+  --catColor: rgb(255, 255, 255);
+  --catHeadColor: rgb(255, 255, 255);
+  --catHighlightColor: rgb(233, 233, 233);
+  --catLeftEarColor: rgb(79, 40, 12);
+  --catRightEarColor: black;
+  --catTailColor: rgb(111, 56, 17);
+}
+
+.pattern {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  border-radius: inherit;
+}
+
+[data-cat-type="calico"] .spotBrown {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+  background: rgb(111, 56, 17);
+
+  right: 20px;
+  bottom: 15px;
+}
+
+[data-cat-type="calico"] .spotBlack {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+  background: rgb(20, 20, 20);
+
+  left: 20px;
+  bottom: 15px;
+}
+
+[data-cat-type="calico"] .spotBrownRight {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+  background: rgb(111, 56, 17);
+
+  transform: rotate(45deg);
+
+  left: 20px;
+  bottom: 15px;
+}
+
+[data-cat-type="calico"] .spotBlackLeft {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+  background: rgb(20, 20, 20);
+
+  transform: rotate(-12deg);
+
+  right: 20px;
+  bottom: 15px;
+}
+
+[data-cloud-type="visible"] .cloud,
+[data-cloud-type="visible"].moonCloud,
+[data-cloud-type="visible"].cloud::before,
+[data-cloud-type="visible"] .cloud::after,
+[data-cloud-type="visible"] .moonCloud::before,
+[data-cloud-type="visible"] .moonCloud::after {
+}
+
+[data-cloud-type="hidden"] .cloud,
+[data-cloud-type="hidden"] .moonCloud,
+[data-cloud-type="hidden"] .cloud::before,
+[data-cloud-type="hidden"] .cloud::after,
+[data-cloud-type="hidden"] .moonCloud::before,
+[data-cloud-type="hidden"] .moonCloud::after {
+  background: transparent;
+}
+
+[data-moon-type="full"] .moon {
+  border-top: visible;
+  border-right: visible;
+
+  background: white;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Window Layer ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+[data-window-type="classic"] {
+  --windowColor: rgb(138, 96, 79);
+  --rodColor: rgb(119, 82, 67);
+}
+
+[data-window-type="modern"] {
+  --windowColor: rgb(200, 200, 200);
+  --rodColor: rgb(150, 150, 150);
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Window Layer ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.window {
+  display: flex;
+  position: relative;
+
+  align-self: center;
+  justify-self: center;
+
+  top: 140px;
+
+  background: transparent;
+
+  width: fit-content;
+  height: fit-content;
+
+  scale: 160%;
+}
+
+.window .frame {
+  display: flex;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow: 0px 0px 12px 0 rgb(0, 0, 0);
+
+  border: var(--borderThickness) solid var(--windowColor);
+
+  min-width: var(--windowWidth);
+  min-height: 300px;
+
+  pointer-events: none;
+}
+
+.frame .inner {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.frame .rodVertical {
+  position: absolute;
+
+  border: var(--rodThickness) solid var(--rodColor);
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+
+  left: 48%;
+
+  min-width: 10px;
+  min-height: 100%;
+}
+
+.frame .rodHorizontal {
+  position: absolute;
+
+  border: var(--rodThickness) solid var(--rodColor);
+  border-top: none;
+  border-right: none;
+  border-left: none;
+
+  bottom: 48%;
+
+  min-width: 100%;
+  min-height: 10px;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Sky Layer ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+@keyframes moonBreath {
+  0% {
+    box-shadow: -10px 10px 10px 0 rgb(255, 255, 255);
+  }
+  50% {
+    box-shadow: -6px 6px 6px 0 rgb(255, 255, 255);
+  }
+  100% {
+    box-shadow: -10px 10px 10px 0 rgb(255, 255, 255);
+  }
+}
+
+.frame .moon {
+  position: absolute;
+
+  border: 10px solid rgb(255, 255, 255);
+  border-top: none;
+  border-right: none;
+  border-radius: 50%;
+
+  box-shadow: -10px 10px 10px 0 rgb(255, 255, 255);
+
+  left: -7%;
+  top: -20px;
+
+  scale: 60%;
+  transform: rotate(10deg);
+
+  height: 70%;
+  aspect-ratio: 1 / 1;
+
+  animation: moonBreath 6s infinite;
+}
+
+.rainLayer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+
+  background: rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  pointer-events: none;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+.drop {
+  position: absolute;
+  width: 2px;
+  height: 8px;
+
+  background: rgba(255, 255, 255, 0.209);
+
+  border-radius: 50%;
+
+  animation-name: fall;
+
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.windowDrop {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+
+  border-radius: 50%;
+  left: 50px;
+  top: 0px;
+
+  opacity: 0;
+
+  animation: formAndFall 5s linear infinite;
+}
+
+@keyframes formAndFall {
+  0% {
+    width: 6px;
+    height: 6px;
+    border-radius: 50% 50% 50% 50%;
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  4% {
+    width: 6px;
+    height: 6px;
+    border-radius: 40% 60% 60% 40%;
+    opacity: 1;
+  }
+  25% {
+    width: 5px;
+    height: 4px;
+    border-radius: 40% 60% 60% 40%;
+    opacity: 1;
+  }
+  50% {
+    width: 4px;
+    height: 6px;
+    border-radius: 40% 60% 60% 40%;
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+
+.starLayer {
+  position: absolute;
+  inset: 0;
+
+  height: 50%;
+
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+
+  background: rgb(143, 143, 143);
+  border-radius: 50%;
+
+  animation: twinkle 10s infinite ease-in-out;
+}
+
+.star::before,
+.star::after {
+  content: "";
+  position: absolute;
+  background: white;
+  border-radius: 2px;
+}
+
+.star::before {
+  width: 1px;
+  height: 8px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.star::after {
+  width: 8px;
+  height: 2px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes twinkle {
+  0% {
+    transform: scale(0.9) rotate(0deg);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.2) rotate(10deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9) rotate(0deg);
+    opacity: 0.4;
+  }
+}
+
+.moonCloud {
+  position: absolute;
+
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.6) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+
+  width: 150px;
+  height: 50px;
+
+  border-radius: 50%;
+
+  scale: 75%;
+
+  top: 120px;
+  left: -40px;
+
+  animation: cloudFloat 10s infinite ease-in-out;
+}
+
+.cloud {
+  position: absolute;
+
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.6) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+
+  width: 150px;
+  height: 50px;
+
+  border-radius: 50%;
+
+  scale: 75%;
+
+  top: 80px;
+  right: -56px;
+
+  animation: cloudFloat 10s infinite ease-in-out;
+}
+
+.moonCloud::before,
+.moonCloud::after,
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.9) 0 50%,
+    transparent 75%
+  );
+}
+
+.moonCloud::before,
+.cloud::before {
+  width: 160px;
+  height: 90px;
+}
+
+.moonCloud::after,
+.cloud::after {
+  width: 90px;
+  height: 70px;
+}
+
+.moonCloud::before {
+  top: -40px;
+  left: -25px;
+}
+
+.moonCloud::after {
+  top: -20px;
+  right: -30px;
+}
+
+.cloud::before {
+  top: -40px;
+  right: -30px;
+}
+
+.cloud::after {
+  top: -20px;
+  left: -25px;
+}
+
+@keyframes cloudFloat {
+  0% {
+    transform: translateX(0px) translateY(0px);
+  }
+  50% {
+    transform: translateX(10px) translateY(-5px);
+  }
+  100% {
+    transform: translateX(0px) translateY(0px);
+  }
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Cat Layer ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.cat {
+  position: absolute;
+
+  bottom: 50px;
+  right: 110px;
+}
+
+.catFrame {
+  position: absolute;
+
+  overflow: visible;
+
+  min-width: 300px;
+  min-height: 300px;
+}
+
+.cat .body {
+  position: absolute;
+}
+
+.cat .bodyInner {
+  position: absolute;
+  width: 107px;
+  height: 50px;
+
+  background: var(--catColor);
+
+  border-radius: 20px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+
+  left: -2px;
+  top: 0px;
+
+  transform-origin: bottom;
+  animation: breath 6s infinite ease;
+}
+
+@keyframes breath {
+  0% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.05);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+.body .tail {
+  position: absolute;
+
+  height: 70px;
+  width: 20px;
+
+  background: var(--catTailColor);
+
+  border-radius: 10px 10px 200px 200px;
+
+  transform-origin: 50% 0%;
+
+  left: 84px;
+  top: 18px;
+
+  animation: tailSway 3s infinite ease-in-out;
+}
+
+@keyframes tailSway {
+  0% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(5deg);
+  }
+}
+
+.body .head {
+  position: absolute;
+
+  height: 45px;
+  width: 50px;
+
+  border-radius: 12px 12px 20px 20px;
+
+  background: var(--catHeadColor);
+
+  left: -18px;
+  top: 8px;
+}
+
+.head .eyeLeft {
+  position: absolute;
+
+  width: 12px;
+  height: 12px;
+  background: transparent;
+  border: solid 2px var(--catEyeColor);
+
+  border-radius: 50%;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+
+  left: 8px;
+  top: 8px;
+}
+
+.head .eyeRight {
+  position: absolute;
+
+  width: 12px;
+  height: 12px;
+  background: transparent;
+  border: solid 2px var(--catEyeColor);
+
+  border-radius: 50%;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+
+  right: 8px;
+  top: 8px;
+}
+
+.head .mouth {
+  position: absolute;
+
+  width: 6px;
+  height: 6px;
+  background: transparent;
+  border: solid 2px var(--catEyeColor);
+
+  border-bottom: none;
+  border-left: none;
+
+  left: 50%;
+  top: 26px;
+
+  transform: translateX(-50%) rotate(-45deg);
+}
+
+.head .earLeft {
+  position: absolute;
+
+  width: 50%;
+  height: 50%;
+  background: var(--catLeftEarColor);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+
+  border-radius: 20px;
+
+  bottom: 32px;
+  left: -6px;
+
+  transform: rotate(-30deg);
+}
+
+.head .earRight {
+  position: absolute;
+
+  width: 50%;
+  height: 50%;
+  background: var(--catRightEarColor);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+
+  border-radius: 6px;
+
+  bottom: 32px;
+  left: 31px;
+
+  transform: rotate(30deg);
+}
+
+.head .whiskers {
+  position: relative;
+}
+
+.head .whiskerTL {
+  position: absolute;
+
+  width: 22px;
+  height: 1px;
+  background: var(--catWhiskerColor);
+
+  transform: rotate(14deg);
+
+  left: -17px;
+  bottom: -18px;
+}
+
+.head .whiskerML {
+  position: absolute;
+
+  width: 22px;
+  height: 1px;
+  background: var(--catWhiskerColor);
+
+  left: -17px;
+  bottom: -25px;
+}
+
+.head .whiskerBL {
+  position: absolute;
+
+  width: 22px;
+  height: 1px;
+  background: var(--catWhiskerColor);
+
+  transform: rotate(-14deg);
+
+  left: -17px;
+  bottom: -32px;
+}
+
+.head .whiskerTR {
+  position: absolute;
+
+  width: 22px;
+  height: 1px;
+  background: var(--catWhiskerColor);
+
+  transform: rotate(-14deg);
+
+  right: -15px;
+  bottom: -18px;
+}
+
+.head .whiskerMR {
+  position: absolute;
+
+  width: 22px;
+  height: 1px;
+  background: var(--catWhiskerColor);
+
+  right: -15px;
+  bottom: -25px;
+}
+
+.head .whiskerBR {
+  position: absolute;
+
+  width: 22px;
+  height: 1px;
+  background: var(--catWhiskerColor);
+
+  transform: rotate(14deg);
+
+  right: -15px;
+  bottom: -32px;
+}
+
+.frame .catReflection {
+  position: absolute;
+
+  bottom: 10px;
+  right: 10px;
+
+  opacity: 0.1;
+
+  filter: blur(1.2px);
+}
+
+.frame:has(.cat:hover) .cat {
+  animation: hover 0.3s;
+}
+
+@keyframes hover {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(2px);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.clickable {
+  cursor: pointer;
+  pointer-events: auto;
+}

@@ -1,0 +1,448 @@
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  height: 100%;
+  margin: 0;
+  background: linear-gradient(
+    to right,
+    var(--background-light),
+    var(--background-dark)
+  );
+  overscroll-behavior: none;
+  margin: 0;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+  display: none;
+}
+a {
+  text-decoration: none;
+}
+.pageWrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.mainContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+/* Styles for Accents */
+:root {
+  --accent-light: #5f6fbb;
+  --accent-hover: #4f5fab;
+  --accent-dark: #35475f;
+  --background-light: #282c34;
+  --background-dark: #0a2449;
+  --accent-shuffleText: #61afef;
+}
+
+[data-accent="purple"] {
+  --accent: #bb5fff;
+  --accent-light: #d28cff;
+  --accent-dark: #8a3ec7;
+  --accent-hover: #9a3fff;
+  --background-light: #3b2b5f;
+  --background-dark: #1f1533;
+  --accent-shuffleText: #c080ff;
+}
+
+[data-accent="emerald"] {
+  --accent: #00c896;
+  --accent-light: #3ee6b8;
+  --accent-dark: #009e75;
+  --accent-hover: #00a66e;
+  --background-light: #0b3b2b;
+  --background-dark: #021c12;
+  --accent-shuffleText: #00e2a0;
+}
+
+[data-accent="orange"] {
+  --accent: #ff914d;
+  --accent-light: #ffb380;
+  --accent-dark: #cc6f32;
+  --accent-hover: #e57a2b;
+  --background-light: #4d2b0b;
+  --background-dark: #1a0f03;
+  --accent-shuffleText: #ffaa6f;
+}
+
+/* Styles for the Navbar component */
+nav {
+  display: flex;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: transparent;
+  color: white;
+  width: 100%;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 0 80px;
+  height: 40px;
+  border-radius: 20px;
+  width: fit-content;
+  margin: 0 auto;
+
+  background: linear-gradient(
+    to right,
+    var(--accent-dark),
+    var(--accent-light)
+  );
+}
+.left {
+  flex: 0 0 auto;
+  background-color: var(--accent-dark);
+  padding: 10px 10px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.downloadCvBtn {
+  flex: 0 0 auto;
+  justify-content: center;
+  background-color: var(--accent-light);
+  padding: 14px 22px;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+
+  transition: all 0.3s ease;
+}
+.downloadCvBtn:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.downloadCvBtn:active {
+  transform: translateY(2px) scale(0.97);
+}
+.navbarTab {
+  cursor: pointer;
+  color: white;
+  transition: all 0.2s ease;
+}
+.navbarTab:hover {
+  transform: scale(1.1);
+  letter-spacing: 1px;
+}
+.clickable {
+  cursor: pointer;
+}
+/* Styles for the Hero component */
+.hero {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 90vh;
+  margin-left: 30px;
+  background-color: transparent;
+  color: white;
+  padding-left: 50px;
+  text-align: left;
+}
+.description {
+  width: 50%;
+  font-size: 0.9rem;
+  margin-top: 20px;
+  color: #8d93a5;
+}
+.hireMeBtn {
+  display: block;
+  margin-top: 40px;
+  margin-left: 10px;
+  width: fit-content;
+  background-color: var(--accent-light);
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  font-size: 1rem;
+
+  transition: all 0.3s ease;
+}
+.hireMeBtn:hover {
+  background-color: var(--accent-hover);
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.hireMeBtn:active {
+  transform: scale(0.95);
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.heroText {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.heroName {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+.heroRole {
+  font-size: 0.5em;
+  font-weight: bold;
+}
+.heroTextBlack {
+  color: black;
+}
+
+/* Styles for the Description component */
+.descriptionSection {
+  justify-content: center;
+  border-radius: 20px;
+  margin: 20px;
+  padding: 20px;
+}
+.title {
+  display: flex;
+  justify-content: center;
+  color: black;
+  font-size: 3em;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 500px);
+  justify-content: center;
+  gap: 25px;
+}
+.aboutSection {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  animation: fadeInLeft 0.6s ease forwards;
+}
+.aboutContainer {
+  display: flex;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  flex-direction: row;
+  padding: 40px;
+  max-width: calc(100% - 40px);
+}
+.aboutContainer img {
+  width: 300px;
+  height: auto;
+  border-radius: 20px;
+  margin-right: 40px;
+  flex: 1;
+}
+.aboutText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: rgb(218, 218, 218);
+  font-size: 1.1rem;
+  width: 50%;
+  text-align: left;
+  flex: 1;
+}
+.aboutTitle {
+  display: flex;
+  color: rgb(255, 255, 255);
+  font-size: 3em;
+  font-weight: bold;
+  padding-bottom: 20px;
+  text-align: left;
+}
+.aboutDescription {
+  display: flex;
+  justify-content: center;
+  color: #9e9e9e;
+  font-size: 1.1rem;
+  width: 85%;
+  text-align: left;
+}
+
+/* Styles for the Projects component */
+.projectsSection {
+  justify-content: center;
+  margin: 20px;
+  padding: 20px;
+}
+.block {
+  opacity: 0;
+  transform: translate(-20px, -20px);
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  padding: 40px;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  transition: all 0.3s ease;
+}
+.blockTitle {
+  display: flex;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.blockDescription {
+  display: flex;
+  color: #b3b3b3;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: left;
+  align-content: center;
+  margin-bottom: 20px;
+}
+.block.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+.block:hover {
+  transform: translateY(-5px) scale(1.02);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.block:active {
+  transform: translateY(2px) scale(0.98);
+}
+
+/* Styles for the About component */
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translate(-35px, 0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+/* Styles for the Contact component */
+@keyframes fadeInTopLeft {
+  0% {
+    opacity: 0;
+    transform: translate(0px, 35px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+.contactSection {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contactContainer {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  color: rgb(218, 218, 218);
+  opacity: 0;
+
+  animation: fadeInTopLeft 0.6s ease forwards;
+}
+.iconRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+.icon {
+  width: 75px;
+  height: auto;
+  border-radius: 15px;
+  transition: transform 0.2s ease;
+}
+.iconRow a:hover .icon {
+  transform: scale(1.1);
+}
+
+/* Styles for the Footer component */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: var(--accent-dark);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.textLeft {
+  display: flex;
+  flex: 1;
+  justify-content: right;
+  margin-right: 8px;
+}
+.textRight {
+  display: flex;
+  flex: 1;
+}
+
+/* Styles for the ShuffleText component*/
+@keyframes blink {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  1%,
+  49% {
+    opacity: 0;
+  }
+}
+.shuffleText {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: var(--accent-shuffleText);
+  display: inline;
+  white-space: nowrap;
+}
+
+.cursor {
+  display: inline-block;
+  background-color: #ffffff;
+  width: 2px;
+  margin-left: 2px;
+  animation: blink 1s infinite;
+}

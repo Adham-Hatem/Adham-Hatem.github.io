@@ -6,7 +6,7 @@ function Hero() {
   return (
     <div className="hero">
       <div className="heroText">
-        <div className="heroName">Wildo</div>
+        <div className="heroName">Adham Hatem</div>
         <div className="heroRole">
           <ShuffleText
             words={[

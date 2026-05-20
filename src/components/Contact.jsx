@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import mailIcon from "../assets/mail-Icon.svg";
-import whatsappIcon from "../assets/whatsapp-Icon.svg";
-import linkedinIcon from "../assets/linkedin-Icon.svg";
+import whatsappIcon from "../assets/whatsapp-icon.svg";
+import linkedinIcon from "../assets/linkedin-icon.svg";
 import "../main.css";
 
 function Contact() {

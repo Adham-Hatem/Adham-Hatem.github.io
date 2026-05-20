@@ -14,13 +14,19 @@ function Contact() {
         </p>
 
         <div className="iconRow">
-          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=adhamhatemgomaa@gmail.com" target="_blank">
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=adhamhatemgomaa@gmail.com"
+            target="_blank"
+          >
             <img src={mailIcon} alt="Email" className="icon" />
           </a>
           <a href="https://wa.me/+201028675020" target="_blank">
             <img src={whatsappIcon} alt="WhatsApp" className="icon" />
           </a>
-          <a href="https://linkedin.com/in/adham-hatem-94bb99343/" target="_blank">
+          <a
+            href="https://linkedin.com/in/adham-hatem-94bb99343/"
+            target="_blank"
+          >
             <img src={linkedinIcon} alt="LinkedIn" className="icon" />
           </a>
         </div>

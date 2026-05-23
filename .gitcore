@@ -1,0 +1,15 @@
+# Git core settings for macOS
+# Use this file as a local project Git config snippet if you source it manually.
+# Example: git config --local include.path ../.gitcore
+
+[core]
+	autocrlf = input
+	fileMode = false
+	ignorecase = true
+	precomposeunicode = true
+
+[pull]
+	rebase = false
+
+[push]
+	default = simple

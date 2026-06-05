@@ -1,12 +1,12 @@
 import { AccentContext } from "../context/AccentContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import cvFile from "../assets/CV.pdf";
+import cvFile from "../assets/cv.pdf";
 import "../main.css";
 
 function Navbar() {
   const { cycle } = useContext(AccentContext);
-  
+
   return (
     <nav className="nav">
       <div className="left brand" onClick={cycle}>

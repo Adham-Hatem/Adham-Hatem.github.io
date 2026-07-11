@@ -85,6 +85,7 @@ nav {
   color: white;
   width: 100%;
 }
+
 .center {
   display: flex;
   justify-content: center;
@@ -101,16 +102,104 @@ nav {
     var(--accent-dark),
     var(--accent-light)
   );
+
+  @media (max-width: 1000px) {
+    display: none;
+  }
 }
-.left {
+
+.brand {
+  display: flex;
+  flex-direction: row;
+
   flex: 0 0 auto;
   background-color: var(--accent-dark);
   padding: 10px 10px;
   text-align: center;
   border-radius: 10px;
+
+  margin-right: auto;
+}
+
+.list-icon {
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 20px;
+  margin: 0 8px 0 8px;
+  width: 30px;
+  height: auto;
+
+  filter: brightness(0) invert(1);
+
+  @media (max-width: 1000px) {
+    display: flex;
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+
+  z-index: 100;
+}
+
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 280px;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  padding: 100px 30px;
+
+  background: linear-gradient(to left, var(--accent-dark), var(--accent-light));
+
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+
+  z-index: 101;
+}
+
+.mobileMenu.open {
+  transform: translateX(0);
+  animation: fadeInLeft 0.4s ease forwards;
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translate(-35px, 0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+.mobileMenu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.mobileMenu a:hover {
+  transform: scale(1.1);
+  letter-spacing: 1px;
 }
 
 .downloadCvBtn {
+  margin-left: auto;
+
   flex: 0 0 auto;
   justify-content: center;
   background-color: var(--accent-light);
@@ -131,7 +220,6 @@ nav {
   transform: translateY(2px) scale(0.97);
 }
 .navbarTab {
-  cursor: pointer;
   color: white;
   transition: all 0.2s ease;
 }

@@ -174,17 +174,6 @@ nav {
   animation: fadeInLeft 0.4s ease forwards;
 }
 
-@keyframes fadeInLeft {
-  0% {
-    opacity: 0;
-    transform: translate(-35px, 0px);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(0, 0);
-  }
-}
-
 .mobileMenu a {
   color: white;
   text-decoration: none;
@@ -210,6 +199,10 @@ nav {
   color: white;
 
   transition: all 0.3s ease;
+
+  @media (max-width: 1000px) {
+    display: none;
+  }
 }
 .downloadCvBtn:hover {
   background-color: var(--accent-hover);
@@ -234,33 +227,60 @@ nav {
 .hero {
   display: flex;
   flex: 1;
+
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+
   height: 90vh;
   margin-left: 30px;
+  padding-left: 50px;
+
   background-color: transparent;
   color: white;
-  padding-left: 50px;
+
   text-align: left;
 }
+
+@media (max-width: 768px) {
+  .hero {
+    margin-left: 0;
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+  }
+  .heroText {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+  }
+
+  .heroName {
+    font-size: 1em;
+  }
+
+  .heroRole {
+    font-size: 0.45em;
+  }
+}
+
 .description {
-  width: 50%;
+  max-width: 700px;
+  width: 100%;
   font-size: 0.9rem;
   margin-top: 20px;
   color: #8d93a5;
 }
 .hireMeBtn {
   display: block;
+
   margin-top: 40px;
   margin-left: 10px;
   width: fit-content;
-  background-color: var(--accent-light);
   padding: 10px 20px;
   border-radius: 10px;
-  cursor: pointer;
-  color: white;
   font-size: 1rem;
+
+  background-color: var(--accent-light);
+  color: white;
 
   transition: all 0.3s ease;
 }
@@ -291,8 +311,9 @@ nav {
   font-weight: bold;
 }
 .heroRole {
-  font-size: 0.5em;
-  font-weight: bold;
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  display: inline-block;
+  min-width: 25ch;
 }
 .heroTextBlack {
   color: black;
@@ -313,12 +334,6 @@ nav {
   font-weight: bold;
   padding-bottom: 20px;
 }
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 500px);
-  justify-content: center;
-  gap: 25px;
-}
 .aboutSection {
   display: flex;
   justify-content: center;
@@ -328,17 +343,23 @@ nav {
 }
 .aboutContainer {
   display: flex;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+
   flex-direction: row;
+
+  gap: 30px;
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
   padding: 40px;
   max-width: calc(100% - 40px);
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .aboutContainer img {
-  width: 300px;
-  height: auto;
+  width: clamp(180px, 40vw, 300px);
+  height: fit-content;
   border-radius: 20px;
   margin-right: 40px;
   flex: 1;
@@ -394,6 +415,11 @@ nav {
   border: 1px solid rgba(255, 255, 255, 0.1);
 
   transition: all 0.3s ease;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 25px;
 }
 .blockTitle {
   display: flex;

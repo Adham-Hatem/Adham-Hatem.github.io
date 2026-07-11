@@ -42,8 +42,6 @@ function Hero() {
         <Link className="hireMeBtn" to="/contact">
           <p>Hire Me</p>
         </Link>
-
-        <script src="x.js"></script>
       </div>
     </div>
   );

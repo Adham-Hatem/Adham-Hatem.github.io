@@ -74,6 +74,10 @@ function Navbar() {
             <Link to="/contact" onClick={() => setMenuOpen(false)}>
               CONTACT
             </Link>
+
+            <a href={cvFile} download>
+              Download CV
+            </a>
           </div>
         </>
       )}

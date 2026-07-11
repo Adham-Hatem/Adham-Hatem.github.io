@@ -260,6 +260,11 @@ nav {
   .heroRole {
     font-size: 0.45em;
   }
+
+  .hireMeBtn {
+    margin-top: 40px;
+    margin-left: 0;
+  }
 }
 
 .description {

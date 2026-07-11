@@ -38,11 +38,11 @@ function Hero() {
           JavaScript. Currently exploring web development with React and
           Node.js.
         </div>
-
-        <Link className="hireMeBtn" to="/contact">
-          <p>Hire Me</p>
-        </Link>
       </div>
+
+      <Link className="hireMeBtn" to="/contact">
+        <p>Hire Me</p>
+      </Link>
     </div>
   );
 }

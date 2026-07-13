@@ -1,4 +1,7 @@
 :root {
+  /* Size */
+  --size: 1.5;
+
   /* Window Data */
   --windowColor: rgb(138, 96, 79);
   --rodColor: rgb(119, 82, 67);
@@ -74,8 +77,8 @@
   border-radius: 50%;
   background: rgb(111, 56, 17);
 
-  right: 20px;
-  bottom: 15px;
+  right: calc(20px + (20px * (var(--size) - 1)));
+  bottom: calc(15px + (20px * (var(--size) - 1)));
 }
 
 [data-cat-type="calico"] .spotBlack {
@@ -87,8 +90,8 @@
   border-radius: 50%;
   background: rgb(20, 20, 20);
 
-  left: 20px;
-  bottom: 15px;
+  left: calc(20px + (20px * (var(--size) - 1)));
+  bottom: calc(15px + (20px * (var(--size) - 1)));
 }
 
 [data-cat-type="calico"] .spotBrownRight {
@@ -102,8 +105,8 @@
 
   transform: rotate(45deg);
 
-  left: 20px;
-  bottom: 15px;
+  left: calc(20px + (50px * (var(--size) - 1)));
+  bottom: calc(15px - (10px * (var(--size) - 1)));
 }
 
 [data-cat-type="calico"] .spotBlackLeft {
@@ -117,8 +120,8 @@
 
   transform: rotate(-12deg);
 
-  right: 20px;
-  bottom: 15px;
+  right: calc(20px - (5px * (var(--size) - 1)));
+  bottom: calc(15px + (20px * (var(--size) - 1)));
 }
 
 [data-cloud-type="visible"] .cloud,
@@ -145,7 +148,7 @@
   background: white;
 }
 
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Window Layer ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Window Type ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 [data-window-type="classic"] {
   --windowColor: rgb(138, 96, 79);
@@ -166,14 +169,7 @@
   align-self: center;
   justify-self: center;
 
-  top: 140px;
-
   background: transparent;
-
-  width: fit-content;
-  height: fit-content;
-
-  scale: 160%;
 }
 
 .window .frame {
@@ -186,10 +182,10 @@
 
   box-shadow: 0px 0px 12px 0 rgb(0, 0, 0);
 
-  border: var(--borderThickness) solid var(--windowColor);
+  border: calc(var(--borderThickness) * var(--size)) solid var(--windowColor);
 
-  min-width: var(--windowWidth);
-  min-height: 300px;
+  min-width: calc(var(--windowWidth) * var(--size));
+  min-height: calc(300px * var(--size));
 
   pointer-events: none;
 }
@@ -208,10 +204,7 @@
 .frame .rodVertical {
   position: absolute;
 
-  border: var(--rodThickness) solid var(--rodColor);
-  border-top: none;
-  border-bottom: none;
-  border-left: none;
+  border-right: calc(var(--rodThickness) * var(--size)) solid var(--rodColor);
 
   left: 48%;
 
@@ -222,10 +215,7 @@
 .frame .rodHorizontal {
   position: absolute;
 
-  border: var(--rodThickness) solid var(--rodColor);
-  border-top: none;
-  border-right: none;
-  border-left: none;
+  border-bottom: calc(var(--rodThickness) * var(--size)) solid var(--rodColor);
 
   bottom: 48%;
 
@@ -247,7 +237,7 @@
   }
 }
 
-.frame .moon {
+.moon {
   position: absolute;
 
   border: 10px solid rgb(255, 255, 255);
@@ -260,7 +250,7 @@
   left: -7%;
   top: -20px;
 
-  scale: 60%;
+  scale: 70%;
   transform: rotate(10deg);
 
   height: 70%;
@@ -430,9 +420,9 @@
 
   border-radius: 50%;
 
-  scale: 75%;
+  scale: calc(100% * (var(--size) * 0.9));
 
-  top: 120px;
+  top: calc(120px + (175px * (var(--size) - 1)));
   left: -40px;
 
   animation: cloudFloat 10s infinite ease-in-out;
@@ -453,9 +443,9 @@
 
   border-radius: 50%;
 
-  scale: 75%;
+  scale: calc(100% * (var(--size) * 0.9));
 
-  top: 80px;
+  top: calc(80px + (175px * (var(--size) - 1)));
   right: -56px;
 
   animation: cloudFloat 10s infinite ease-in-out;
@@ -543,17 +533,17 @@
 
 .cat .bodyInner {
   position: absolute;
-  width: 107px;
-  height: 50px;
+  width: calc(107px * var(--size));
+  height: calc(50px * var(--size));
 
   background: var(--catColor);
 
-  border-radius: 20px;
+  border-radius: calc(20px * var(--size));
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 
-  left: -2px;
-  top: 0px;
+  left: calc(-2px - (107px * (var(--size) - 1)));
+  top: calc(0px - (50px * (var(--size) - 1)));
 
   transform-origin: bottom;
   animation: breath 6s infinite ease;
@@ -574,16 +564,17 @@
 .body .tail {
   position: absolute;
 
-  height: 70px;
-  width: 20px;
+  height: calc(70px * var(--size));
+  width: calc(20px * var(--size));
 
   background: var(--catTailColor);
 
-  border-radius: 10px 10px 200px 200px;
+  border-radius: calc(10px * var(--size)) calc(10px * var(--size))
+    calc(200px * var(--size)) calc(200px * var(--size));
 
   transform-origin: 50% 0%;
 
-  left: 84px;
+  left: calc(84px - (20px * (var(--size) - 1)));
   top: 18px;
 
   animation: tailSway 3s infinite ease-in-out;
@@ -601,25 +592,26 @@
   }
 }
 
-.body .head {
+.head {
   position: absolute;
 
-  height: 45px;
-  width: 50px;
+  height: calc(45px * var(--size));
+  width: calc(50px * var(--size));
 
-  border-radius: 12px 12px 20px 20px;
+  border-radius: calc(12px * var(--size)) calc(12px * var(--size))
+    calc(20px * var(--size)) calc(20px * var(--size));
 
   background: var(--catHeadColor);
 
-  left: -18px;
-  top: 8px;
+  left: calc(-18px - (125px * (var(--size) - 1)));
+  top: calc(8px - (45px * (var(--size) - 1)));
 }
 
 .head .eyeLeft {
   position: absolute;
 
-  width: 12px;
-  height: 12px;
+  width: calc(12px * var(--size));
+  height: calc(12px * var(--size));
   background: transparent;
   border: solid 2px var(--catEyeColor);
 
@@ -628,15 +620,15 @@
   border-right: none;
   border-left: none;
 
-  left: 8px;
-  top: 8px;
+  left: calc(8px * var(--size));
+  top: calc(8px * var(--size));
 }
 
 .head .eyeRight {
   position: absolute;
 
-  width: 12px;
-  height: 12px;
+  width: calc(12px * var(--size));
+  height: calc(12px * var(--size));
   background: transparent;
   border: solid 2px var(--catEyeColor);
 
@@ -645,15 +637,15 @@
   border-right: none;
   border-left: none;
 
-  right: 8px;
-  top: 8px;
+  right: calc(8px * var(--size));
+  top: calc(8px * var(--size));
 }
 
 .head .mouth {
   position: absolute;
 
-  width: 6px;
-  height: 6px;
+  width: calc(6px * var(--size));
+  height: calc(6px * var(--size));
   background: transparent;
   border: solid 2px var(--catEyeColor);
 
@@ -661,7 +653,7 @@
   border-left: none;
 
   left: 50%;
-  top: 26px;
+  top: calc(26px * var(--size));
 
   transform: translateX(-50%) rotate(-45deg);
 }
@@ -676,8 +668,8 @@
 
   border-radius: 20px;
 
-  bottom: 32px;
-  left: -6px;
+  bottom: calc(32px * var(--size));
+  left: calc(-6px * var(--size));
 
   transform: rotate(-30deg);
 }
@@ -690,10 +682,10 @@
   background: var(--catRightEarColor);
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 
-  border-radius: 6px;
+  border-radius: calc(6px * var(--size));
 
-  bottom: 32px;
-  left: 31px;
+  bottom: calc(32px * var(--size));
+  left: calc(31px * var(--size));
 
   transform: rotate(30deg);
 }
@@ -705,75 +697,75 @@
 .head .whiskerTL {
   position: absolute;
 
-  width: 22px;
-  height: 1px;
+  width: calc(22px * var(--size));
+  height: calc(1px * var(--size));
   background: var(--catWhiskerColor);
 
   transform: rotate(14deg);
 
-  left: -17px;
-  bottom: -18px;
+  left: calc(-17px * var(--size));
+  bottom: calc(-18px * var(--size));
 }
 
 .head .whiskerML {
   position: absolute;
 
-  width: 22px;
-  height: 1px;
+  width: calc(22px * var(--size));
+  height: calc(1px * var(--size));
   background: var(--catWhiskerColor);
 
-  left: -17px;
-  bottom: -25px;
+  left: calc(-17px * var(--size));
+  bottom: calc(-25px * var(--size));
 }
 
 .head .whiskerBL {
   position: absolute;
 
-  width: 22px;
-  height: 1px;
+  width: calc(22px * var(--size));
+  height: calc(1px * var(--size));
   background: var(--catWhiskerColor);
 
   transform: rotate(-14deg);
 
-  left: -17px;
-  bottom: -32px;
+  left: calc(-17px * var(--size));
+  bottom: calc(-32px * var(--size));
 }
 
 .head .whiskerTR {
   position: absolute;
 
-  width: 22px;
-  height: 1px;
+  width: calc(22px * var(--size));
+  height: calc(1px * var(--size));
   background: var(--catWhiskerColor);
 
   transform: rotate(-14deg);
 
-  right: -15px;
-  bottom: -18px;
+  right: calc(-15px * var(--size));
+  bottom: calc(-18px * var(--size));
 }
 
 .head .whiskerMR {
   position: absolute;
 
-  width: 22px;
-  height: 1px;
+  width: calc(22px * var(--size));
+  height: calc(1px * var(--size));
   background: var(--catWhiskerColor);
 
-  right: -15px;
-  bottom: -25px;
+  right: calc(-15px * var(--size));
+  bottom: calc(-25px * var(--size));
 }
 
 .head .whiskerBR {
   position: absolute;
 
-  width: 22px;
-  height: 1px;
+  width: calc(22px * var(--size));
+  height: calc(1px * var(--size));
   background: var(--catWhiskerColor);
 
   transform: rotate(14deg);
 
-  right: -15px;
-  bottom: -32px;
+  right: calc(-15px * var(--size));
+  bottom: calc(-32px * var(--size));
 }
 
 .frame .catReflection {
@@ -787,29 +779,101 @@
   filter: blur(1.2px);
 }
 
-.frame:has(.cat:hover) .cat {
-  animation: hover 0.3s;
-}
-
-@keyframes hover {
-  0% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(2px);
-  }
-  50% {
-    transform: translateX(0);
-  }
-  75% {
-    transform: translateX(-2px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
 .clickable {
   cursor: pointer;
   pointer-events: auto;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ containers ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.mainContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+
+  flex-direction: row;
+
+  gap: 30px;
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px;
+
+  width: fit-content;
+  height: fit-content;
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.controlPanel {
+  display: flex;
+  flex-wrap: wrap;
+
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+.windowControlButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.catColorButton {
+  width: 80%;
+  height: 80%;
+
+  border-radius: 50%;
+
+  background-color: var(--catTailColor);
+}
+
+.windowControlButton img {
+  width: 100%;
+  height: 100%;
+
+  filter: brightness(0) invert(1);
+}
+
+.moonIcon {
+  position: absolute;
+
+  border: 10px solid rgb(255, 255, 255);
+  border-top: none;
+  border-right: none;
+  border-radius: 50%;
+
+  box-shadow: -30px 20px 20px 0 rgb(255, 255, 255);
+
+  scale: 10%;
+  transform: rotate(10deg) translateX(20px) translateY(-20px);
+
+  height: 70%;
+  aspect-ratio: 1 / 1;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Resizer ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+@media (max-width: 577px) {
+  :root {
+    --size: 1;
+  }
+
+  .controlPanel {
+    flex-direction: row;
+  }
+
+  .mainContainer {
+    flex-direction: column;
+  }
 }

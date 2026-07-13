@@ -84,10 +84,6 @@ nav {
   background-color: transparent;
   color: white;
   width: 100%;
-
-  @media (max-width: 1000px) {
-    padding: 20px 20px;
-  }
 }
 
 .center {
@@ -106,10 +102,6 @@ nav {
     var(--accent-dark),
     var(--accent-light)
   );
-
-  @media (max-width: 1000px) {
-    display: none;
-  }
 }
 
 .brand {
@@ -123,6 +115,8 @@ nav {
   border-radius: 10px;
 
   margin-right: auto;
+
+  scale: 100%;
 }
 
 .list-icon {
@@ -137,10 +131,6 @@ nav {
   height: auto;
 
   filter: brightness(0) invert(1);
-
-  @media (max-width: 1000px) {
-    display: flex;
-  }
 }
 
 .overlay {
@@ -203,10 +193,6 @@ nav {
   color: white;
 
   transition: all 0.3s ease;
-
-  @media (max-width: 1000px) {
-    display: none;
-  }
 }
 .downloadCvBtn:hover {
   background-color: var(--accent-hover);
@@ -227,6 +213,7 @@ nav {
 .clickable {
   cursor: pointer;
 }
+
 /* Styles for the Hero component */
 .hero {
   display: flex;
@@ -244,31 +231,6 @@ nav {
   color: white;
 
   text-align: left;
-}
-
-@media (max-width: 768px) {
-  .hero {
-    margin-left: 0;
-    padding: 20px;
-    align-items: center;
-    text-align: center;
-  }
-  .heroText {
-    font-size: clamp(2rem, 5vw, 2.5rem);
-  }
-
-  .heroName {
-    font-size: 1em;
-  }
-
-  .heroRole {
-    font-size: 0.45em;
-  }
-
-  .hireMeBtn {
-    margin-top: 40px;
-    margin-left: 0;
-  }
 }
 
 .description {
@@ -496,7 +458,7 @@ nav {
   border-radius: 20px;
   padding: 40px;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 0 20px 0 20px;
   text-align: center;
   color: rgb(218, 218, 218);
   opacity: 0;
@@ -568,4 +530,61 @@ nav {
   width: 2px;
   margin-left: 2px;
   animation: blink 1s infinite;
+}
+
+/* Responsive Design */
+
+@media (max-width: 1000px) {
+  nav {
+    padding: 20px 20px;
+  }
+
+  .center {
+    display: none;
+  }
+
+  .list-icon {
+    display: flex;
+  }
+
+  .downloadCvBtn {
+    display: none;
+  }
+}
+
+@media (max-width: 577px) {
+  .hero {
+    margin-left: 0;
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+  }
+  .heroText {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+  }
+
+  .heroName {
+    font-size: 1em;
+  }
+
+  .heroRole {
+    font-size: 0.45em;
+  }
+
+  .hireMeBtn {
+    margin-top: 40px;
+    margin-left: 0;
+  }
+
+  .brand {
+    scale: 90%;
+  }
+
+  nav {
+    padding: 20px 10px;
+  }
+
+  .projectsSection {
+    padding: 0;
+  }
 }

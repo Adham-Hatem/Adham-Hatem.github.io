@@ -74,34 +74,34 @@ function Navbar() {
           <div className="overlay" onClick={() => setMenuOpen(false)} />
 
           <div className={`mobileMenu ${menuOpen ? "open" : ""}`}>
-            <a
+            <button
               className="clickable"
               onClick={() => setMenuOpen(false) & scrollToSection("hero")}
             >
               HOME
-            </a>
-            <a
+            </button>
+            <button
               className="clickable"
               onClick={() => setMenuOpen(false) & scrollToSection("about")}
             >
               ABOUT
-            </a>
-            <a
+            </button>
+            <button
               className="clickable"
               onClick={() => setMenuOpen(false) & scrollToSection("projects")}
             >
               PROJECTS
-            </a>
-            <a
+            </button>
+            <button
               className="clickable"
               onClick={() => setMenuOpen(false) & scrollToSection("contact")}
             >
               CONTACT
-            </a>
+            </button>
 
-            <a href={cvFile} download>
+            <button className="clickable" href={cvFile} download>
               Download CV
-            </a>
+            </button>
           </div>
         </>
       )}

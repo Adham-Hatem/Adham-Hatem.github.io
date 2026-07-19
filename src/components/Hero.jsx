@@ -39,18 +39,18 @@ function Hero() {
       </div>
 
       <div className="row">
-        <a
+        <button
           className="heroButtons clickable"
           onClick={() => scrollToSection("contact")}
         >
           <p>Contact Me</p>
-        </a>
-        <a
+        </button>
+        <button
           className="heroButtons clickable"
           onClick={() => scrollToSection("projects")}
         >
           <p>View My Work</p>
-        </a>
+        </button>
       </div>
     </div>
   );

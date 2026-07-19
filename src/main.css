@@ -240,14 +240,23 @@ nav {
   animation: fadeInLeft 0.4s ease forwards;
 }
 
-.mobileMenu a {
+.mobileMenu button {
   color: white;
+
+  background: transparent;
+
+  border: none;
+  text-align: left;
+
+  font-size: 1rem;
+
   text-decoration: none;
   font-weight: 600;
+
   transition: all 0.2s ease;
 }
 
-.mobileMenu a:hover {
+.mobileMenu button:hover {
   transform: scale(1.1);
   letter-spacing: 1px;
 }
@@ -315,9 +324,14 @@ nav {
 
   margin-top: 40px;
   margin-left: 10px;
+
+  border-radius: 20px;
+  border: none;
+
   width: fit-content;
   padding: 10px 20px;
   border-radius: 10px;
+
   font-size: 1rem;
 
   background-color: var(--accent-light);

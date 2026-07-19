@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import mailIcon from "../assets/mail-Icon.svg";
 import linkedinIcon from "../assets/linkedin-icon.svg";
 import githubIcon from "../assets/github-icon.svg";
@@ -6,7 +5,7 @@ import "../main.css";
 
 function Contact() {
   return (
-    <section id="contact" className="contactSection">
+    <section id="contact" className="section contactSection">
       <div className="contactContainer">
         <h1>Contact Me</h1>
         <p>

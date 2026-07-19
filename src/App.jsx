@@ -11,18 +11,22 @@ import { AccentProvider } from "./context/AccentContext";
 import { CatTypeProvider } from "./context/CatTypeContext";
 import { CloudProvider } from "./context/cloudContext";
 import { MoonProvider } from "./context/moonContext";
+import Background from "./components/Background";
 
 function App() {
   return (
     <AccentProvider>
       <Router>
         <div className="pageWrapper">
+          <Background />
           <AccentPopEffect />
           <Navbar />
           <main className="mainContent">
+            <Hero />
+            <About />
+            <Projects />
+            <Contact />
             <Routes>
-              <Route path="/" element={<Hero />} />
-              <Route path="/about" element={<About />} />
               <Route
                 path="/WindowCat"
                 element={
@@ -35,8 +39,6 @@ function App() {
                   </CatTypeProvider>
                 }
               />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/contact" element={<Contact />} />
             </Routes>
           </main>
         </div>

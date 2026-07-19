@@ -1,8 +1,8 @@
 import { AccentContext } from "../context/AccentContext";
 import { useContext, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import cvFile from "../assets/cv.pdf";
+import cvFile from "../assets/Adham_Hatem_Gomaa_Resume.pdf";
 import listIcon from "../assets/list-icon.svg";
+import { scrollToSection } from "../utils/scrollToSection";
 import "../main.css";
 
 function Navbar() {
@@ -38,18 +38,30 @@ function Navbar() {
           </h1>
         </div>
         <div className="center">
-          <Link to="/">
-            <p className="navbarTab">HOME</p>
-          </Link>
-          <Link to="/about">
-            <p className="navbarTab">ABOUT</p>
-          </Link>
-          <Link to="/projects">
-            <p className="navbarTab">PROJECTS</p>
-          </Link>
-          <Link to="/contact">
-            <p className="navbarTab">CONTACT</p>
-          </Link>
+          <p
+            className="navbarTab clickable"
+            onClick={() => scrollToSection("hero")}
+          >
+            HERO
+          </p>
+          <p
+            className="navbarTab clickable"
+            onClick={() => scrollToSection("about")}
+          >
+            ABOUT
+          </p>
+          <p
+            className="navbarTab clickable"
+            onClick={() => scrollToSection("projects")}
+          >
+            PROJECTS
+          </p>
+          <p
+            className="navbarTab clickable"
+            onClick={() => scrollToSection("contact")}
+          >
+            CONTACT
+          </p>
         </div>
 
         <a className="downloadCvBtn" href={cvFile} download>
@@ -62,18 +74,30 @@ function Navbar() {
           <div className="overlay" onClick={() => setMenuOpen(false)} />
 
           <div className={`mobileMenu ${menuOpen ? "open" : ""}`}>
-            <Link to="/" onClick={() => setMenuOpen(false)}>
+            <a
+              className="clickable"
+              onClick={() => setMenuOpen(false) & scrollToSection("hero")}
+            >
               HOME
-            </Link>
-            <Link to="/about" onClick={() => setMenuOpen(false)}>
+            </a>
+            <a
+              className="clickable"
+              onClick={() => setMenuOpen(false) & scrollToSection("about")}
+            >
               ABOUT
-            </Link>
-            <Link to="/projects" onClick={() => setMenuOpen(false)}>
+            </a>
+            <a
+              className="clickable"
+              onClick={() => setMenuOpen(false) & scrollToSection("projects")}
+            >
               PROJECTS
-            </Link>
-            <Link to="/contact" onClick={() => setMenuOpen(false)}>
+            </a>
+            <a
+              className="clickable"
+              onClick={() => setMenuOpen(false) & scrollToSection("contact")}
+            >
               CONTACT
-            </Link>
+            </a>
 
             <a href={cvFile} download>
               Download CV

@@ -9,14 +9,12 @@ body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
   height: 100%;
-  margin: 0;
   background: linear-gradient(
     to right,
     var(--background-light),
     var(--background-dark)
   );
   overscroll-behavior: none;
-  margin: 0;
   overflow-x: hidden;
   scrollbar-width: none;
 }
@@ -32,7 +30,8 @@ a {
   flex-direction: column;
 }
 .mainContent {
-  flex: 1;
+  padding-top: 90px;
+
   display: flex;
   flex-direction: column;
 }
@@ -75,15 +74,88 @@ a {
   --background-dark: #1a0f03;
   --accent-shuffleText: #ffaa6f;
 }
+/* Styles for Sections */
+.section {
+  min-height: calc(100vh - 90px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px 0;
+  scroll-margin-top: 90px;
+}
+@keyframes dividerGlow {
+  0%,
+  100% {
+    opacity: 0.45;
+    filter: brightness(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    filter: brightness(1.4);
+  }
+}
+
+.sectionDivider {
+  width: clamp(280px, 70vw, 900px);
+  height: 2px;
+
+  margin: 0 auto 30px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--accent-light),
+    transparent
+  );
+
+  box-shadow:
+    0 0 10px var(--accent-light),
+    0 0 20px var(--accent-light);
+
+  animation: dividerGlow 5s ease-in-out infinite;
+}
+.sectionTitle {
+  color: white;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  text-align: center;
+
+  margin-bottom: 12px;
+}
+
+.sectionSubtitle {
+  color: #9ca3af;
+  text-align: center;
+
+  max-width: 650px;
+  margin: 0 auto 50px;
+
+  line-height: 1.7;
+}
 
 /* Styles for the Navbar component */
 nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+
   display: flex;
   align-items: center;
+
   padding: 20px 40px;
-  background-color: transparent;
-  color: white;
+
+  height: 90px;
   width: 100%;
+
+  background: transparent;
+
+  /*background: transparent;*/
+  color: white;
+
+  z-index: 1000;
 }
 
 .center {
@@ -138,7 +210,7 @@ nav {
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
 
-  z-index: 100;
+  z-index: 1999;
 }
 
 .mobileMenu {
@@ -160,7 +232,7 @@ nav {
   transform: translateX(-100%);
   transition: transform 0.3s ease;
 
-  z-index: 101;
+  z-index: 2000;
 }
 
 .mobileMenu.open {
@@ -213,7 +285,6 @@ nav {
 .clickable {
   cursor: pointer;
 }
-
 /* Styles for the Hero component */
 .hero {
   display: flex;
@@ -223,7 +294,6 @@ nav {
   align-items: flex-start;
   justify-content: center;
 
-  height: 90vh;
   margin-left: 30px;
   padding-left: 50px;
 
@@ -240,7 +310,7 @@ nav {
   margin-top: 20px;
   color: #8d93a5;
 }
-.hireMeBtn {
+.heroButtons {
   display: block;
 
   margin-top: 40px;
@@ -255,12 +325,12 @@ nav {
 
   transition: all 0.3s ease;
 }
-.hireMeBtn:hover {
+.heroButtons:hover {
   background-color: var(--accent-hover);
   transform: scale(1.08);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
-.hireMeBtn:active {
+.heroButtons:active {
   transform: scale(0.95);
 }
 .row {
@@ -290,7 +360,13 @@ nav {
   color: black;
 }
 
-/* Styles for the Description component */
+/* Styles for the About component */
+.aboutSection {
+  display: flex;
+  justify-content: center;
+
+  animation: fadeInLeft 0.6s ease forwards;
+}
 .descriptionSection {
   justify-content: center;
   border-radius: 20px;
@@ -305,17 +381,13 @@ nav {
   font-weight: bold;
   padding-bottom: 20px;
 }
-.aboutSection {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-
-  animation: fadeInLeft 0.6s ease forwards;
-}
 .aboutContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+
+  align-self: flex-start;
 
   flex-direction: row;
 
@@ -327,13 +399,19 @@ nav {
 
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
+
+  @media (max-width: 950px) {
+    flex-direction: column;
+  }
 }
 .aboutContainer img {
+  display: flex;
+  flex: 1;
+
   width: clamp(180px, 40vw, 300px);
   height: fit-content;
+
   border-radius: 20px;
-  margin-right: 40px;
-  flex: 1;
 }
 .aboutText {
   display: flex;
@@ -354,32 +432,44 @@ nav {
   text-align: left;
 }
 .aboutDescription {
-  display: flex;
-  justify-content: center;
   color: #9e9e9e;
   font-size: 1.1rem;
   width: 85%;
+  line-height: 1.7;
   text-align: left;
+}
+
+.aboutDescription p {
+  margin-bottom: 20px;
 }
 
 /* Styles for the Projects component */
 .projectsSection {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   margin: 20px;
   padding: 20px;
 }
-.block {
+.projectCard {
+  display: block;
+  flex: 1 1 300px;
+
   opacity: 0;
+
   transform: translate(-20px, -20px);
   transition:
     transform 0.5s ease,
     opacity 0.5s ease;
-  display: block;
+
   border-radius: 12px;
+
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+
   padding: 40px;
   width: 100%;
   height: 100%;
+  max-width: 400px;
 
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
@@ -387,12 +477,15 @@ nav {
 
   transition: all 0.3s ease;
 }
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+.projectsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 25px;
+
+  margin-bottom: 30px;
 }
-.blockTitle {
+.projectTitle {
   display: flex;
   color: white;
   font-size: 2rem;
@@ -401,7 +494,7 @@ nav {
   text-align: center;
   margin-bottom: 40px;
 }
-.blockDescription {
+.projectPreview {
   display: flex;
   color: #b3b3b3;
   font-size: 1rem;
@@ -410,19 +503,18 @@ nav {
   align-content: center;
   margin-bottom: 20px;
 }
-.block.visible {
+.projectCard.visible {
   opacity: 1;
   transform: translate(0, 0);
 }
-.block:hover {
+.projectCard:hover {
   transform: translateY(-5px) scale(1.02);
   background-color: rgba(255, 255, 255, 0.1);
 }
-.block:active {
+.projectCard:active {
   transform: translateY(2px) scale(0.98);
 }
 
-/* Styles for the About component */
 @keyframes fadeInLeft {
   0% {
     opacity: 0;
@@ -434,6 +526,112 @@ nav {
   }
 }
 
+.projectPopup {
+  position: fixed;
+
+  background: rgba(20, 20, 30, 0.5);
+  backdrop-filter: blur(15px);
+
+  border-radius: 20px;
+
+  color: white;
+
+  z-index: 200;
+
+  padding: 40px;
+
+  transform-origin: center;
+
+  max-height: 90vh;
+  overflow-y: auto;
+
+  animation: expandPopup 0.5s ease forwards;
+}
+.projectPopup h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+.popupClose {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+
+  width: 30px;
+  height: 30px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 18px;
+
+  transition: 0.2s ease;
+}
+
+.popupClose:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+.popupDescription p {
+  color: #b3b3b3;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+@keyframes expandPopup {
+  from {
+    transform: translate(0, 0) scale(1);
+
+    opacity: 0.5;
+  }
+
+  to {
+    top: 50%;
+    left: 50%;
+
+    width: min(700px, 90vw);
+    height: 500px;
+
+    transform: translate(-50%, -50%) scale(1);
+
+    opacity: 1;
+  }
+}
+
+.projectOverlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  backdrop-filter: blur(8px);
+
+  z-index: 150;
+
+  animation: fadeOverlay 0.3s ease;
+}
+
+@keyframes fadeOverlay {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popupAppear {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -46%) scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
 /* Styles for the Contact component */
 @keyframes fadeInTopLeft {
   0% {
@@ -445,9 +643,59 @@ nav {
     transform: translate(0, 0);
   }
 }
+
+.projectImage {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+
+  border-radius: 15px;
+
+  margin-bottom: 25px;
+}
+
+.githubButton {
+  position: absolute;
+
+  right: 40px;
+  bottom: 60px;
+
+  display: inline-block;
+
+  margin-top: 25px;
+  padding: 12px 25px;
+
+  background: var(--accent-light);
+  color: white;
+
+  border-radius: 10px;
+
+  transition: 0.3s ease;
+}
+
+.githubButton:hover {
+  transform: scale(1.05);
+  background: var(--accent-hover);
+}
+
+.livePreview {
+  margin-top: 30px;
+  padding: 20px;
+
+  border-radius: 15px;
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Styles for Contact Component */
 .contactSection {
   flex: 1;
   display: flex;
+
+  flex-direction: column;
+
   align-items: center;
   justify-content: center;
 }
@@ -456,12 +704,16 @@ nav {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
+
   padding: 40px;
   max-width: 600px;
-  margin: 0 20px 0 20px;
+
   text-align: center;
   color: rgb(218, 218, 218);
+
   opacity: 0;
+
+  margin-bottom: 90px;
 
   animation: fadeInTopLeft 0.6s ease forwards;
 }
@@ -571,7 +823,7 @@ nav {
     font-size: 0.45em;
   }
 
-  .hireMeBtn {
+  .heroButtons {
     margin-top: 40px;
     margin-left: 0;
   }
@@ -586,5 +838,94 @@ nav {
 
   .projectsSection {
     padding: 0;
+  }
+}
+
+/* Styles for Background Component */
+.background {
+  position: fixed;
+  inset: 0;
+
+  z-index: 0;
+
+  pointer-events: none;
+  overflow: hidden;
+}
+.blob {
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  border-radius: 50%;
+
+  background: var(--accent-light);
+
+  opacity: 0.08;
+
+  filter: blur(140px);
+
+  animation: floatBlob 35s ease-in-out infinite;
+}
+.blob1 {
+  width: 550px;
+  height: 550px;
+}
+
+.blob2 {
+  width: 700px;
+  height: 700px;
+}
+
+.blob3 {
+  width: 450px;
+  height: 450px;
+}
+@keyframes floatBlob {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  25% {
+    transform: translate(80px, -40px) scale(1.08);
+  }
+
+  50% {
+    transform: translate(-40px, 60px) scale(0.95);
+  }
+
+  75% {
+    transform: translate(60px, 40px) scale(1.05);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+.particle {
+  position: absolute;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: var(--accent-light);
+
+  box-shadow:
+    0 0 8px var(--accent-light),
+    0 0 15px var(--accent-light);
+
+  opacity: 0.18;
+
+  animation: drift linear infinite;
+}
+@keyframes drift {
+  from {
+    transform: translateY(0px);
+  }
+
+  to {
+    transform: translateY(-120px);
   }
 }

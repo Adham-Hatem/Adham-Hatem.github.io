@@ -6,7 +6,7 @@ export default function AnimatedBlock({
   index = 0,
   delay = 100,
   className = "",
-  href,
+  onClick,
 }) {
   const ref = useRef();
 
@@ -19,8 +19,8 @@ export default function AnimatedBlock({
   }, [index, delay]);
 
   return (
-    <a ref={ref} href={href} target="_blank" className={`block ${className}`}>
+    <div ref={ref} className={`block ${className}`} onClick={onClick}>
       {children}
-    </a>
+    </div>
   );
 }

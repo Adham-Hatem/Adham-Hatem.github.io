@@ -1,10 +1,11 @@
 import ShuffleText from "./shuffleText";
 import "../main.css";
 import { Link } from "react-router-dom";
+import { scrollToSection } from "../utils/scrollToSection";
 
 function Hero() {
   return (
-    <div className="hero">
+    <div className="section hero" id="hero">
       <div className="heroText">
         <div className="heroName">Adham Hatem</div>
         <div className="heroRole">
@@ -17,14 +18,11 @@ function Hero() {
               "Problem Solver",
               "Frontend Developer",
               "Systems Builder",
-              "Web Engineer",
-              "Application Architect",
-              "Solution Architect",
-              "UI Engineer",
-              "Tech Enthusiast",
-              "Systems Engineer",
-              "Digital Craftsman",
-              "Software Craftsman",
+              "AI Developer",
+              "Software Developer",
+              "Game Developer",
+              "Backend Developer",
+              "Computer Science Student",
             ]}
             typingSpeed={50}
             deletingSpeed={50}
@@ -33,16 +31,27 @@ function Hero() {
         </div>
 
         <div className="description">
-          Computer Science undergraduate passionate about software development
-          and building creative projects working with Java, Python, and
-          JavaScript. Currently exploring web development with React and
-          Node.js.
+          Computer Science undergraduate who enjoys turning ideas into
+          functional software. I build interactive applications, AI-driven
+          projects, and creative experiences while continuously exploring new
+          technologies and improving my craft.
         </div>
       </div>
 
-      <Link className="hireMeBtn" to="/contact">
-        <p>Hire Me</p>
-      </Link>
+      <div className="row">
+        <a
+          className="heroButtons clickable"
+          onClick={() => scrollToSection("contact")}
+        >
+          <p>Contact Me</p>
+        </a>
+        <a
+          className="heroButtons clickable"
+          onClick={() => scrollToSection("projects")}
+        >
+          <p>View My Work</p>
+        </a>
+      </div>
     </div>
   );
 }

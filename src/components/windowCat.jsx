@@ -14,7 +14,7 @@ function WindowCat() {
   const moonCycle = useContext(MoonContext)?.cycle;
 
   return (
-    <section class="mainContainer">
+    <section className="mainContainer">
       <div id="window" className="window">
         <div className="frame">
           <div className="inner">

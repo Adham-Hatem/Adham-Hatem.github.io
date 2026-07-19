@@ -1,6 +1,6 @@
 :root {
   /* Size */
-  --size: 1.5;
+  --size: 1.25;
 
   /* Window Data */
   --windowColor: rgb(138, 96, 79);
@@ -869,11 +869,13 @@
     --size: 1;
   }
 
-  .controlPanel {
-    flex-direction: row;
-  }
-
   .mainContainer {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 678px) {
+  .controlPanel {
+    flex-direction: row;
   }
 }

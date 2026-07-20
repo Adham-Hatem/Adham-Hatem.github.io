@@ -17,7 +17,6 @@ body {
     var(--background-dark)
   );
 
-  scroll-behavior: smooth;
   overscroll-behavior: none;
   overflow-x: hidden;
   scrollbar-width: none;

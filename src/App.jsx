@@ -14,7 +14,7 @@ import Background from "./components/Background";
 
 function App() {
   return (
-    <AccentProvider>
+    <section>
       <div className="pageWrapper">
         <Background />
         <AccentPopEffect />
@@ -28,7 +28,7 @@ function App() {
       </div>
 
       <Footer />
-    </AccentProvider>
+    </section>
   );
 }
 

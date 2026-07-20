@@ -244,7 +244,8 @@ nav {
   animation: fadeInLeft 0.4s ease forwards;
 }
 
-.mobileMenu button {
+.mobileMenu button,
+a {
   color: white;
 
   background: transparent;
@@ -260,7 +261,8 @@ nav {
   transition: all 0.2s ease;
 }
 
-.mobileMenu button:hover {
+.mobileMenu button:hover,
+a:hover {
   transform: scale(1.1);
   letter-spacing: 1px;
 }

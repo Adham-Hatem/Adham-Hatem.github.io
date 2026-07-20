@@ -12,6 +12,7 @@ function WindowCat() {
   const cycle = useContext(CatTypeContext)?.cycle;
   const cloudCycle = useContext(CloudContext)?.cycle;
   const moonCycle = useContext(MoonContext)?.cycle;
+  const isMobile = window.innerWidth <= 768;
 
   return (
     <section className="mainContainer">
@@ -26,8 +27,8 @@ function WindowCat() {
             <div className="windowDrop" />
             <div className="glassLayer" />
             <div className="rainLayer">
-              <RainLayer></RainLayer>
-              <WindowDrops></WindowDrops>
+              <RainLayer dropCount={isMobile ? 120 : 250} />
+              <WindowDrops />
             </div>
 
             <div className="catReflection">

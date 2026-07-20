@@ -3,6 +3,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 html,
 body {
@@ -153,6 +155,7 @@ nav {
   background: transparent;
 
   /*background: transparent;*/
+
   color: white;
 
   z-index: 1000;
@@ -948,4 +951,9 @@ nav {
   to {
     transform: translateY(-120px);
   }
+}
+
+* {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }

@@ -17,6 +17,7 @@ body {
     var(--background-dark)
   );
 
+  overscroll-behavior: none;
   overflow-x: hidden;
   scrollbar-width: none;
 }
@@ -78,7 +79,7 @@ a {
 }
 /* Styles for Sections */
 .section {
-  min-height: calc(100vh - 90px);
+  min-height: calc(100dvh - 90px);
 
   display: flex;
   align-items: center;

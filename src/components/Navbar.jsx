@@ -76,32 +76,44 @@ function Navbar() {
           <div className={`mobileMenu ${menuOpen ? "open" : ""}`}>
             <button
               className="clickable"
-              onClick={() => setMenuOpen(false) & scrollToSection("hero")}
+              onClick={() => {
+                setMenuOpen(false);
+                scrollToSection("hero");
+              }}
             >
-              HOME
+              HERO
             </button>
             <button
               className="clickable"
-              onClick={() => setMenuOpen(false) & scrollToSection("about")}
+              onClick={() => {
+                setMenuOpen(false);
+                scrollToSection("about");
+              }}
             >
               ABOUT
             </button>
             <button
               className="clickable"
-              onClick={() => setMenuOpen(false) & scrollToSection("projects")}
+              onClick={() => {
+                setMenuOpen(false);
+                scrollToSection("projects");
+              }}
             >
               PROJECTS
             </button>
             <button
               className="clickable"
-              onClick={() => setMenuOpen(false) & scrollToSection("contact")}
+              onClick={() => {
+                setMenuOpen(false);
+                scrollToSection("contact");
+              }}
             >
               CONTACT
             </button>
 
-            <button className="clickable" href={cvFile} download>
+            <a href={cvFile} download className="clickable">
               Download CV
-            </button>
+            </a>
           </div>
         </>
       )}

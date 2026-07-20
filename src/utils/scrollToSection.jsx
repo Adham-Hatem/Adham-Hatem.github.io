@@ -1,8 +1,9 @@
 export function scrollToSection(id) {
-  requestAnimationFrame(() => {
-    document.getElementById(id)?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+  const element = document.getElementById(id);
+  if (!element) return;
+
+  window.scrollTo({
+    top: element.offsetTop - 90,
+    behavior: "smooth",
   });
 }

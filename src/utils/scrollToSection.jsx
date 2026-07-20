@@ -1,9 +1,17 @@
 export function scrollToSection(id) {
-  const element = document.getElementById(id);
-  if (!element) return;
+  console.log("clicked");
 
-  window.scrollTo({
-    top: element.offsetTop - 90,
+  const target = document.getElementById(id);
+
+  console.log("target", target);
+
+  if (!target) return;
+
+  console.log("starting scroll");
+
+  target.scrollIntoView({
     behavior: "smooth",
   });
+
+  console.log("finished call");
 }

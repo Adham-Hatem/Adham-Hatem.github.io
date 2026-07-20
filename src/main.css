@@ -262,7 +262,7 @@ a {
 }
 
 .mobileMenu button:hover,
-a:hover {
+.mobileMenu a:hover {
   transform: scale(1.1);
   letter-spacing: 1px;
 }

@@ -16,7 +16,6 @@ import Background from "./components/Background";
 function App() {
   return (
     <AccentProvider>
-      <Router>
         <div className="pageWrapper">
           <Background />
           <AccentPopEffect />
@@ -26,25 +25,10 @@ function App() {
             <About />
             <Projects />
             <Contact />
-            <Routes>
-              <Route
-                path="/WindowCat"
-                element={
-                  <CatTypeProvider>
-                    <CloudProvider>
-                      <MoonProvider>
-                        <WindowCat />
-                      </MoonProvider>
-                    </CloudProvider>
-                  </CatTypeProvider>
-                }
-              />
-            </Routes>
           </main>
         </div>
 
         <Footer />
-      </Router>
     </AccentProvider>
   );
 }

@@ -16,7 +16,7 @@ body {
     var(--background-light),
     var(--background-dark)
   );
-  overscroll-behavior: none;
+
   overflow-x: hidden;
   scrollbar-width: none;
 }
@@ -951,9 +951,4 @@ nav {
   to {
     transform: translateY(-120px);
   }
-}
-
-* {
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
 }

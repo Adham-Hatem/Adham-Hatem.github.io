@@ -79,7 +79,7 @@ a {
 }
 /* Styles for Sections */
 .section {
-  min-height: calc(100dvh - 90px);
+  min-height: calc(100vh - 90px);
 
   display: flex;
   align-items: center;

@@ -9,6 +9,20 @@ function Navbar() {
   const { cycle } = useContext(AccentContext);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const handleBrandClick = (e) => {
+    const el = e.currentTarget;
+
+    el.classList.remove("clicked");
+    void el.offsetWidth;
+    el.classList.add("clicked");
+
+    setTimeout(() => {
+      el.classList.remove("clicked");
+    }, 400);
+
+    cycle();
+  };
+
   useEffect(() => {
     function handleResize() {
       if (window.innerWidth > 1000) {
@@ -33,9 +47,9 @@ function Navbar() {
             alt="List"
             onClick={() => setMenuOpen(!menuOpen)}
           />
-          <h1 className="clickable" onClick={cycle}>
-            Portofolio
-          </h1>
+          <div className="clickable brand-text" onClick={handleBrandClick}>
+            <h1>Portfolio</h1>
+          </div>
         </div>
         <div className="center">
           <p

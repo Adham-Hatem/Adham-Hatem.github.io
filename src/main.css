@@ -194,6 +194,68 @@ nav {
 
   scale: 100%;
 }
+.brand-text {
+  display: inline-block;
+  width: 100%;
+}
+
+.brand-text:hover {
+  background-image: linear-gradient(
+    90deg,
+    #00c6ff,
+    #00e5a8,
+    #7dff72,
+    #ffd166,
+    #ff6b6b,
+    #c77dff,
+    #00c6ff
+  );
+  background-size: 200% auto;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+
+  animation:
+    shift-rainbow 4s linear infinite,
+    float 1.5s ease-in-out infinite alternate;
+}
+
+.brand-text.clicked {
+  animation:
+    shift-rainbow 4s linear infinite,
+    float 1.5s ease-in-out infinite alternate,
+    clickPop 0.4s ease;
+}
+
+@keyframes clickPop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15) rotate(5deg);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shift-rainbow {
+  to {
+    background-position: -200% center;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-3px) rotate(2deg);
+  }
+}
 
 .list-icon {
   display: none;

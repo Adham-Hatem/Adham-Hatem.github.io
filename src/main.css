@@ -194,12 +194,13 @@ nav {
 
   scale: 100%;
 }
+
 .brand-text {
   display: inline-block;
   width: 100%;
 }
 
-.brand-text:hover h1 {
+.brand-text:hover .idleFloat {
   background-image: linear-gradient(
     90deg,
     #00c6ff,
@@ -210,23 +211,85 @@ nav {
     #c77dff,
     #00c6ff
   );
-  background-size: 200% auto;
 
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   font-weight: bold;
 
+  background-size: 200% auto;
+
   animation:
     shift-rainbow 4s linear infinite,
-    float 1.5s ease-in-out infinite alternate;
+    float 1.5s ease infinite;
+}
+
+.brand-text:hover .idleOpacity {
+  display: none;
+  animation: none;
 }
 
 .brand-text.clicked {
   animation:
     shift-rainbow 4s linear infinite,
-    float 1.5s ease-in-out infinite alternate,
+    float 1.5s ease infinite alternate,
     clickPop 0.4s ease;
+}
+
+.brand-text .idleFloat {
+  font-weight: bold;
+
+  animation: float 4s ease infinite;
+}
+
+.brand-text .idleOpacity {
+  position: absolute;
+
+  top: 10px;
+
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+
+  background-image: linear-gradient(
+    90deg,
+    #00c6ff,
+    #00e5a8,
+    #7dff72,
+    #ffd166,
+    #ff6b6b,
+    #c77dff,
+    #00c6ff
+  );
+
+  animation: floatWithOpacity 4s ease infinite;
+}
+
+@keyframes floatWithOpacity {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-3px) rotate(2deg);
+    opacity: 50%;
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05) rotate(2deg);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @keyframes clickPop {

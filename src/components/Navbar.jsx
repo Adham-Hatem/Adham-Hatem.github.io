@@ -48,7 +48,8 @@ function Navbar() {
             onClick={() => setMenuOpen(!menuOpen)}
           />
           <div className="clickable brand-text" onClick={handleBrandClick}>
-            <h1>Portfolio</h1>
+            <h1 className="idleFloat">Portfolio</h1>
+            <h1 className="idleOpacity">Portfolio</h1>
           </div>
         </div>
         <div className="center">

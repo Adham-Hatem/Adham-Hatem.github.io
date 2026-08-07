@@ -1,123 +1,54 @@
-# 📦 StockNest
+# 🌐 Adham Hatem — Developer Portfolio
 
-> A modern inventory and store management system built with **React**, designed to evolve into a complete full-stack solution for retailers, supermarkets, and small businesses.
-
----
-
-## 🌐 Live Demo
-
-🚀 **Try StockNest:**
-https://adham-hatem.github.io/StockNest/
-
-> The current demo focuses on the frontend experience and inventory management workflow. Backend services and database integration are planned for future releases.
+> A modern, interactive developer portfolio built with **React** and **Vite**, focused on clean UI, smooth animations, and showcasing software projects.
 
 ---
 
-## 📌 Development Status
+## 🌐 Live Website
 
-StockNest is currently under active development.
-
-Current version includes:
-
-* ✅ Dashboard interface
-* ✅ Inventory management workflow
-* ✅ Product CRUD operations
-* ✅ Product validation
-* ✅ Responsive UI architecture
-
-Future releases will introduce backend services, authentication, persistent storage, and additional business features.
+🚀 **Portfolio:**
+https://adham-hatem.github.io/
 
 ---
 
 ## 📖 Overview
 
-StockNest is a personal long-term project focused on building a modern inventory management platform from the ground up.
+This repository contains my personal developer portfolio website.
 
-Unlike a simple CRUD demonstration, StockNest is being developed with scalability and maintainability in mind, using reusable React components, structured architecture, and a user experience inspired by professional business software.
+The goal of this project was to create more than a simple static resume page — instead, it is designed as an interactive experience that reflects my approach to software development: clean architecture, attention to detail, and enjoyable user experiences.
 
-The current implementation focuses on inventory management and dashboard analytics, with future plans including authentication, supplier management, sales tracking, reporting, and database integration.
-
----
-
-## ✨ Current Features
-
-### Dashboard
-
-* Dashboard overview
-* Product statistics
-* Low stock alerts
-* Best seller widget
-* Recent activity section
-
-### Inventory
-
-* View products
-* Search products
-* Add products
-* Edit products
-* Delete products
-* Stock status indicators
-* Responsive inventory table
-* Form validation
-* Duplicate barcode prevention
-
-### User Experience
-
-* Responsive layout
-* Sidebar navigation
-* Reusable modal component
-* Reusable React components
-* Client-side state management
+The portfolio showcases my projects, technical skills, and development journey while experimenting with modern frontend techniques.
 
 ---
 
-## 🚀 Planned Features
+## ✨ Features
 
-### Backend
+### 🎨 Interactive Design
 
-* Express REST API
-* PostgreSQL integration
-* Prisma ORM
-* Authentication
-* JWT authorization
-* Persistent database storage
+- Custom responsive design system
+- Smooth scrolling navigation
+- Animated UI elements
+- Dynamic accent colors
+- Interactive hover effects
+- Custom text animations
+- Dark/light visual styling
 
-### Inventory
+### 🖥 Portfolio Sections
 
-* Categories management
-* Bulk product import
-* Barcode support
-* Inventory history
-* Product images
+- Hero introduction
+- About section
+- Skills overview
+- Project showcase
+- Contact section
+- Resume access
 
-### Sales
+### ⚙️ Components & Architecture
 
-* Point of Sale (POS)
-* Sales history
-* Revenue analytics
-* Best-selling products
-* Daily reports
-
-### Suppliers
-
-* Supplier management
-* Purchase orders
-* Restocking workflow
-
-### Dashboard
-
-* Interactive charts
-* Revenue analytics
-* Inventory trends
-* Monthly reports
-* Export to Excel / PDF
-
-### Users
-
-* Role-based authentication
-* Manager accounts
-* Cashier accounts
-* Activity logs
+- Reusable React components
+- Context-based state management
+- Component-based styling
+- Clean folder organization
+- Responsive layouts for different screen sizes
 
 ---
 
@@ -125,95 +56,115 @@ The current implementation focuses on inventory management and dashboard analyti
 
 ### Frontend
 
-* React
-* Vite
-* React Router
-* CSS
-* GitHub Pages
+- React
+- Vite
+- JavaScript (ES6+)
+- CSS3
+- HTML5
 
-### Backend (Planned)
+### Tools
 
-* Node.js
-* Express
-* PostgreSQL
-* Prisma ORM
-* JWT Authentication
-
----
-
-## 📸 Screenshots
-
-### Inventory
-
-![Inventory](screenshots/inventory.png)
-
-More screenshots will be added as the project grows.
+- Git
+- GitHub Pages
+- npm
 
 ---
 
 ## 📂 Project Structure
 
 ```text
-StockNest
+Portfolio
 │
-├── frontend/
-│   ├── src/
-│   ├── public/
-│   └── package.json
+├── src/
+│   │
+│   ├── components/
+│   │   ├── Navbar
+│   │   ├── Hero
+│   │   ├── About
+│   │   ├── Projects
+│   │   ├── Footer
+│   │   └── UI Components
+│   │
+│   ├── context/
+│   │   └── Theme & UI Providers
+│   │
+│   ├── styles/
+│   │
+│   └── main.jsx
 │
-├── backend/
-│   ├── routes/
-│   ├── controllers/
-│   ├── data/
-│   └── server.js
+├── public/
 │
 ├── screenshots/
 │
+├── package.json
+├── vite.config.js
 ├── README.md
-├── CHANGELOG.md
-├── LICENSE
-└── .gitignore
+└── LICENSE
 ```
 
 ---
 
-## ⚙️ Getting Started
+## 📸 Screenshots
+
+### Portfolio Preview
+
+![Portfolio](screenshots/portfolio.png)
+
+More screenshots and improvements will be added as the project evolves.
+
+---
+
+## 🚀 Getting Started
 
 ### Clone the repository
 
 ```bash
-git clone https://github.com/Adham-Hatem/StockNest.git
+git clone https://github.com/Adham-Hatem/Adham-Hatem.github.io.git
 ```
 
-### Frontend
+### Install dependencies
 
 ```bash
-cd frontend
 npm install
+```
+
+### Run locally
+
+```bash
 npm run dev
 ```
 
-The frontend will run locally using Vite.
-
-### Backend
-
-Backend development is planned for future releases.
+The website will be available through the local Vite development server.
 
 ---
 
-## 🤝 Contributing
+## 📦 Deployment
 
-Contributions, feature suggestions, and bug reports are welcome.
+The portfolio is deployed using **GitHub Pages**.
 
-If you'd like to contribute, feel free to fork the repository and open a Pull Request.
+Build the project:
+
+```bash
+npm run build
+```
+
+Deploy:
+
+```bash
+npm run deploy
+```
 
 ---
 
-## 📄 License
+## 🧩 Future Improvements
 
-This project is licensed under the MIT License.
+Planned improvements include:
 
-See the [LICENSE](LICENSE) file for more information.
+- More project case studies
+- Improved accessibility
+- Additional animations
+- Blog/articles section
+- More interactive components
 
 ---
 
@@ -224,3 +175,14 @@ See the [LICENSE](LICENSE) file for more information.
 Computer Science Undergraduate
 
 Software Developer
+
+- GitHub: https://github.com/Adham-Hatem
+- Portfolio: https://adham-hatem.github.io/
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+See the [LICENSE](LICENSE) file for more information.

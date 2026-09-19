@@ -4,13 +4,6 @@
 
 ---
 
-## 🌐 Live Website
-
-🚀 **Portfolio:**
-https://adham-hatem.github.io/
-
----
-
 ## 📖 Overview
 
 This repository contains my personal developer portfolio website.

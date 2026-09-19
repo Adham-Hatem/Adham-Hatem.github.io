@@ -10,38 +10,7 @@ This repository contains my personal developer portfolio website.
 
 The goal of this project was to create more than a simple static resume page — instead, it is designed as an interactive experience that reflects my approach to software development: clean architecture, attention to detail, and enjoyable user experiences.
 
-The portfolio showcases my projects, technical skills, and development journey while experimenting with modern frontend techniques.
-
----
-
-## ✨ Features
-
-### 🎨 Interactive Design
-
-- Custom responsive design system
-- Smooth scrolling navigation
-- Animated UI elements
-- Dynamic accent colors
-- Interactive hover effects
-- Custom text animations
-- Dark/light visual styling
-
-### 🖥 Portfolio Sections
-
-- Hero introduction
-- About section
-- Skills overview
-- Project showcase
-- Contact section
-- Resume access
-
-### ⚙️ Components & Architecture
-
-- Reusable React components
-- Context-based state management
-- Component-based styling
-- Clean folder organization
-- Responsive layouts for different screen sizes
+The portfolio showcases my projects, technical skills, and development journey while experimenting with modern frontend techniques!
 
 ---
 
@@ -97,16 +66,6 @@ Portfolio
 
 ---
 
-## 📸 Screenshots
-
-### Portfolio Preview
-
-![Portfolio](screenshots/portfolio.png)
-
-More screenshots and improvements will be added as the project evolves.
-
----
-
 ## 🚀 Getting Started
 
 ### Clone the repository
@@ -153,24 +112,17 @@ npm run deploy
 
 Planned improvements include:
 
-- More project case studies
-- Improved accessibility
-- Additional animations
-- Blog/articles section
+- Change project showcase to a caroussel
+- Add ability to pause animation
 - More interactive components
 
 ---
 
 ## 👨‍💻 Author
 
-**Adham Hatem**
+**Adham Hatem** 
 
 Computer Science Undergraduate
-
-Software Developer
-
-- GitHub: https://github.com/Adham-Hatem
-- Portfolio: https://adham-hatem.github.io/
 
 ---
 
